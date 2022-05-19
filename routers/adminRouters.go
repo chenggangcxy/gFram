@@ -1,28 +1,17 @@
 package routers
 
 import (
-	"fmt"
 	"ruirui/controllers/admin"
+	"ruirui/middlewares"
 
 	"github.com/gin-gonic/gin"
 )
 
-//中间件
-
-func initMiddleware(c *gin.Context) {
-	fmt.Println("midlleware1")
-	//先执行下一个任务，在执行println
-	c.Next()
-
-	fmt.Println("middleware2")
-
-}
-
 func AdminRouters(r *gin.Engine) {
-	adminRouters := r.Group("/admin")
+	adminRouters := r.Group("/admin", middlewares.InitMiddleware)
 	{
-		adminRouters.GET("/", initMiddleware, admin.UserContoller{}.UserIndex)
-		adminRouters.GET("/useradd", initMiddleware, admin.UserContoller{}.UserAdd)
+		adminRouters.GET("/", admin.UserContoller{}.UserIndex)
+		adminRouters.GET("/useradd", admin.UserContoller{}.UserAdd)
 
 	}
 }
