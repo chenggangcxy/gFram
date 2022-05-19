@@ -9,7 +9,7 @@ import (
 func ApiRouters(r *gin.Engine) {
 	apiRouters := r.Group("/api")
 	{
-		apiRouters.GET("/", api.User)
+		apiRouters.GET("/", api.ApiController{}.User)
 
 	}
 }

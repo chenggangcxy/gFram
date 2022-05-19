@@ -9,7 +9,8 @@ import (
 func DefaultRouters(r *gin.Engine) {
 	defaultRouters := r.Group("/")
 	{
-		defaultRouters.GET("/", ruirui.Index)
+		defaultRouters.GET("/", ruirui.UserController{}.Index)
+		defaultRouters.GET("/news", ruirui.NewsContoller{}.Index)
 
 	}
 }

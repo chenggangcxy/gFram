@@ -1,10 +1,13 @@
 package admin
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 )
 
 type UserContoller struct {
+	BaseController
 }
 
 func (con UserContoller) UserIndex(c *gin.Context) {
@@ -18,5 +21,6 @@ func (con UserContoller) UserIndex(c *gin.Context) {
 }
 
 func (con UserContoller) UserAdd(c *gin.Context) {
-	c.String(200, "haha")
+	fmt.Println("admin")
+	con.success(c)
 }
