@@ -1,5 +1,5 @@
 module ruirui
-//123123
+//123123333
 go 1.18
 
 require github.com/gin-gonic/gin v1.7.7
