@@ -14,4 +14,9 @@ func (con UserController) Index(c *gin.Context) {
 		"hobby": []string{"eat", "sleep", "code"},
 		"date":  1652757847,
 	})
+
+}
+
+func (con UserController) Useradd(c *gin.Context) {
+	c.HTML(200, "default/register.html", gin.H{})
 }

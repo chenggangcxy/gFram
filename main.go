@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"html/template"
+	"ruirui/models"
 	"ruirui/routers"
 	"time"
 
@@ -24,14 +26,17 @@ func initMiddleware(c *gin.Context) {
 func main() {
 	r := gin.Default()
 	//自制模板函数
-	//r.SetFuncMap()
+	r.SetFuncMap(template.FuncMap{
+		"UnixToTime": models.UnixToTime,
+	})
+
 	//加载templates下所有模板
 	r.LoadHTMLGlob("templates/**/*")
 	//加载静态文件
 	r.Static("/static", "./static")
 	//全局中间件
 	r.Use(initMiddleware)
-	//
+
 	routers.AdminRouters(r)
 	routers.ApiRouters(r)
 	routers.DefaultRouters(r)
