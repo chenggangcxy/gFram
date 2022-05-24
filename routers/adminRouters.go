@@ -11,7 +11,7 @@ func AdminRouters(r *gin.Engine) {
 	adminRouters := r.Group("/admin", middlewares.InitMiddleware)
 	{
 		adminRouters.GET("/", admin.UserContoller{}.UserIndex)
-		adminRouters.GET("/useradd", admin.UserContoller{}.UserAdd)
+		adminRouters.POST("/user/userAdd", admin.UserContoller{}.UserAdd)
 
 	}
 }

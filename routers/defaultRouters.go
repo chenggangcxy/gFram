@@ -11,6 +11,7 @@ func DefaultRouters(r *gin.Engine) {
 	{
 		defaultRouters.GET("/", ruirui.UserController{}.Index)
 		defaultRouters.GET("/news", ruirui.NewsContoller{}.Index)
+		defaultRouters.GET("/register", ruirui.UserController{}.Useradd)
 
 	}
 }
