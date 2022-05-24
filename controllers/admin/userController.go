@@ -26,13 +26,14 @@ func (con UserContoller) UserAdd(c *gin.Context) {
 	//password := c.PostForm("password")
 
 	form, _ := c.MultipartForm()
-	files := form.File["face[]"]
+	//多文件上传
+	files := form.File["profile[]"]
 
 	for _, file := range files {
 		dst := path.Join("./static/upload", file.Filename)
 		c.SaveUploadedFile(file, dst)
 	}
-
+	//单文件上传
 	// file, err := c.FormFile("profile")
 	// dst := path.Join("./static/upload", file.Filename)
 	// if err == nil {
