@@ -1,3 +1,10 @@
-h1{
-    background-color: rgb(36, 139, 53);
+.right{
+    float: right;
 }
+.register{
+    margin-left: 20px;
+}
+.fr{
+    display: inline;
+}
+

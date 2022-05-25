@@ -10,4 +10,5 @@ import (
 func InitMiddleware(c *gin.Context) {
 	//判断用户是否登录
 	fmt.Println(time.Now())
+	//c.Set("username")
 }

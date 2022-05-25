@@ -12,6 +12,7 @@ func AdminRouters(r *gin.Engine) {
 	{
 		adminRouters.GET("/", admin.UserContoller{}.UserIndex)
 		adminRouters.POST("/user/useradd", admin.UserContoller{}.UserAdd)
+		adminRouters.GET("/add", admin.UserContoller{}.Add)
 
 	}
 }
